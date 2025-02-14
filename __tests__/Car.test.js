@@ -22,3 +22,12 @@ test.each(["아주 긴 자동차"])("자동차 이름은 5자 이하여야한다
     const car = new Car();
   }).toThrow();
 });
+
+// 경계값에 대해서 검증
+test("자동차는 전진할 수 있다", () => {
+  const car = new Car("공원");
+
+  car.move(4);
+
+  expect(car.position).toBe(1);
+});
