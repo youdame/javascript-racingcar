@@ -7,15 +7,17 @@ const MAX_NAME_LENGTH = 5;
 
 class Car {
   constructor(name) {
-    if (name.length > MAX_NAME_LENGTH) {
+    this.name = name;
+    if (this.isNameValid()) {
       throw new Error();
     }
-    this.name = name;
     this.position = 0;
   }
 
+  isNameValid() {
+    return this.name.length > 5;
+  }
   /*
-  
   랜덤 값은 모킹 없이 어떻게 테스트하지? -> 모킹을 하기 보다는 분리를 해라
   랜덤값을 뽑아내는 걸 굳이 테스트해야 하는가?
   우린 자동차가 정해진 범위의 숫자를 받으면 전진하는지만 테스트하면 된다

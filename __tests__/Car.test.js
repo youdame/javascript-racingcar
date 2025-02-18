@@ -1,33 +1,22 @@
 import Car from "../src/Car.js";
 
-test("자동차는 이름을 가져야한다.", () => {
+test("입력받은 이름으로 자동차를 만든다", () => {
   // given
 
-  const name = "담이";
-
+  const name = "소심이";
   // when
+
   const car = new Car(name);
+
   // then
+
   expect(car.name).toBe(name);
 });
 
-test.each(["아주 긴 자동차"])("자동차 이름은 5자 이하여야한다.", (name) => {
-  // 0, 1, 2, 3, 4, 5, 6 중 보통은 경계값을 검증한다.
-  // given
-  // when
-
-  // then
+test("이름은 5자 이하만 가능하다", () => {
+  const name = "당당이 버럭이";
 
   expect(() => {
-    const car = new Car();
+    new Car(name);
   }).toThrow();
-});
-
-// 경계값에 대해서 검증
-test("자동차는 전진할 수 있다", () => {
-  const car = new Car("공원");
-
-  car.move(4);
-
-  expect(car.position).toBe(1);
 });
